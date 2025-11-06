@@ -4,7 +4,6 @@ function generateCode(){
   const date = new Date().toISOString().slice(0,10).replace(/-/g,'');
   return `AMP-${date}-${rnd}`;
 }
-
 exports.handler = async (event) => {
   try {
     const body = JSON.parse(event.body || '{}');
