@@ -1,0 +1,8 @@
+1) Subir este repo a Netlify → Add new project → Import from Git.
+2) En Netlify → Site settings → Environment variables:
+   - MP_ACCESS_TOKEN = (tu token de Mercado Pago)
+   - APPS_SCRIPT_URL = (URL del Apps Script)
+   - SITE_URL = https://<tu-sitio>.netlify.app
+3) En Mercado Pago → Webhooks → URL:
+   https://<tu-sitio>.netlify.app/.netlify/functions/mp_webhook
+4) En /js/config.js poné APPS_SCRIPT_URL para que el login por código funcione.
