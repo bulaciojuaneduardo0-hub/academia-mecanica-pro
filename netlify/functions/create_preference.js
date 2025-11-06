@@ -1,4 +1,3 @@
-
 exports.handler = async (event) => {
   try {
     const body = JSON.parse(event.body || '{}');
