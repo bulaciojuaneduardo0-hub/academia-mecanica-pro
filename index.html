@@ -7,17 +7,16 @@
 <style>
   :root{
     --bg:#0f1420; --panel:#151c2b; --panel2:#1a2335; --text:#e8ecf3; --muted:#a8b0c0;
-    --accent:#2f6cff; --accent2:#395aff; --card:#111827; --chip:#0b1220; --border:#253049;
+    --accent:#2f6cff; --border:#253049; --chip:#0b1220;
   }
   *{box-sizing:border-box} html,body{height:100%}
   body{margin:0;background:linear-gradient(180deg,#0c111c,#0a0f1a);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
   a{color:var(--text);text-decoration:none}
-  /* Layout */
-  .app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}
+  .app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
   .side{background:var(--panel);border-right:1px solid var(--border);padding:18px 14px;position:sticky;top:0;height:100vh}
   .brand{display:flex;align-items:center;gap:10px;margin-bottom:22px}
-  .title{font-weight:700;letter-spacing:.3px}
-  .nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;color:var(--muted)}
+  .title{font-weight:800;letter-spacing:.2px}
+  .nav a{display:flex;gap:10px;padding:10px 12px;border-radius:10px;color:var(--muted)}
   .nav a.active,.nav a:hover{background:var(--panel2);color:var(--text)}
   .main{padding:18px}
   .bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
@@ -25,19 +24,17 @@
   .chip{margin-left:auto;background:var(--chip);border:1px solid var(--border);padding:8px 10px;border-radius:999px;color:var(--muted);font-size:13px}
   .search{display:flex;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:10px 12px;flex:1;min-width:240px}
   .search input{flex:1;background:transparent;border:0;color:var(--text);outline:none}
-  /* Content grid */
   .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
   .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:14px}
-  .list{background:var(--panel2);border:1px solid var(--border);border-radius:12px;overflow:auto;max-height:360px}
-  .item{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.04)}
-  .item:hover{background:rgba(255,255,255,.04)}
+  .list{background:var(--panel2);border:1px solid var(--border);border-radius:12px;overflow:auto;max-height:380px}
+  .item{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer}
+  .item:hover{background:rgba(255,255,255,.05)}
   .video{aspect-ratio:16/9;background:#0b1220;border-radius:12px;border:1px solid var(--border);display:grid;place-items:center;overflow:hidden}
   .btn{display:inline-block;background:var(--accent);padding:10px 14px;border-radius:10px;color:white;font-weight:700}
   table{width:100%;border-collapse:collapse;font-size:14px}
-  td,th{padding:10px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left;color:var(--text)}
-  th{opacity:.8}
+  td,th{padding:10px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left}
+  th{opacity:.85}
   .note{background:var(--panel2);border:1px solid var(--border);padding:12px;border-radius:12px;color:var(--muted)}
-  /* Logo (SVG pistón metálico) */
   .logo{width:34px;height:34px;filter:drop-shadow(0 1px 0 rgba(0,0,0,.35))}
   .subtle{color:var(--muted);font-size:13px}
   @media (max-width:980px){ .app{grid-template-columns:1fr} .side{height:auto;position:static} .grid{grid-template-columns:1fr} .chip{margin-left:0} }
@@ -45,15 +42,14 @@
 </head>
 <body>
 <div class="app">
-  <!-- Sidebar -->
   <aside class="side">
     <div class="brand">
-      <!-- LOGO: pistón dentro de engranaje (no dice “Nico Motores”) -->
+      <!-- LOGO pistón metálico (no dice Nico Motores) -->
       <svg class="logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
         <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#cfd4db"/><stop offset="1" stop-color="#9aa3b1"/></linearGradient></defs>
         <g fill="url(#g)">
-          <path d="M32 6a2 2 0 0 1 2 2v4a18 18 0 0 1 10.1 4.2l3-1.7a2 2 0 0 1 2.7.8l2 3.5a2 2 0 0 1-.7 2.7l-2.6 1.5a18.2 18.2 0 0 1 0 11l2.6 1.5a2 2 0 0 1 .7 2.7l-2 3.5a2 2 0 0 1-2.7.8l-3-1.7A18 18 0 0 1 34 52v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4a18 18 0 0 1-10.1-4.2l-3 1.7a2 2 0 0 1-2.7-.8l-2-3.5a2 2 0 0 1 .7-2.7l2.6-1.5a18.2 18.2 0 0 1 0-11l-2.6-1.5a2 2 0 0 1-.7-2.7l2-3.5a2 2 0 0 1 2.7-.8l3 1.7A18 18 0 0 1 26 12V8a2 2 0 0 1 2-2h4zM32 18a14 14 0 1 0 0 28 14 14 0 0 0 0-28z"/>
-          <path d="M37 23h-6v9.2a6 6 0 1 0 4 0V27h2a2 2 0 0 0 2-2v-2a0 0 0 0 0 0 0z"/>
+          <path d="M32 6a2 2 0 0 1 2 2v4a18 18 0 0 1 10.1 4.2l3-1.7a2 2 0 0 1 2.7.8l2 3.5a2 2 0 0 1-.7 2.7l-2.6 1.5a18.2 18.2 0 0 1 0 11l2.6 1.5a2 2 0 0 1 .7 2.7l-2 3.5a2 2 0 0 1-2.7.8l-3-1.7A18 18 0 0 1 34 52v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4a18 18 0 0 1-10.1-4.2l-3 1.7a2 2 0 0 1-2.7-.8l-2-3.5a2 2 0 0 1 .7-2.7l2.6-1.5a18.2 18.2 0 0 1 0-11l-2.6-1.5a2 2 0 0 1 .7-2.7l2-3.5a2 2 0 0 1 2.7-.8l3 1.7A18 18 0 0 1 26 12V8a2 2 0 0 1 2-2h4zM32 18a14 14 0 1 0 0 28 14 14 0 0 0 0-28z"/>
+          <path d="M37 23h-6v9.2a6 6 0 1 0 4 0V27h2a2 2 0 0 0 2-2v-2z"/>
         </g>
       </svg>
       <div>
@@ -64,10 +60,9 @@
 
     <nav class="nav">
       <a class="active" href="/index.html">Índice</a>
-      <a href="/search.html">Por Marca</a>
-      <a href="/search.html">Por Motor</a>
-      <a href="/library.html">Biblioteca</a>
+      <a href="/search.html">Buscador</a>
       <a href="/modules.html">Módulos</a>
+      <a href="/library.html">Biblioteca</a>
     </nav>
     <div style="margin-top:18px">
       <a class="btn" href="#" onclick="startPay('monthly')">Suscribirme</a>
@@ -75,11 +70,10 @@
     </div>
   </aside>
 
-  <!-- Main -->
   <main class="main">
     <div class="bar">
       <div class="h1">Curso de Puesta a Punto</div>
-      <div class="chip">Modo aprendizaje</div>
+      <div class="chip">Aprendizaje a tu ritmo</div>
       <label class="search">
         <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#a8b0c0" d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 1 0 14 15.5l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
         <input id="q" placeholder="Buscar... (marca/modelo)">
@@ -88,25 +82,25 @@
 
     <div class="grid">
       <section class="card">
-        <h2 style="margin:6px 0 12px">CHEVROLET</h2>
+        <h2 style="margin:6px 0 12px">Modelos</h2>
         <div class="list" id="modelList"></div>
       </section>
 
       <section>
         <div class="card">
           <div class="video" id="vid">
-            <a class="btn" href="https://www.youtube.com/results?search_query=puesta+a+punto+chevrolet+corsa" target="_blank">Ver video en YouTube</a>
+            <a class="btn" href="https://www.youtube.com/results?search_query=puesta+a+punto+motor" target="_blank">Ver video en YouTube</a>
           </div>
         </div>
 
         <div class="card" style="margin-top:14px">
-          <h3 style="margin:6px 0 10px">Tabla</h3>
-          <table id="tbl"><thead><tr><th>Marca</th><th>Modelo</th><th>Torque</th></tr></thead><tbody></tbody></table>
+          <h3 style="margin:6px 0 10px">Ficha rápida</h3>
+          <table id="tbl"><thead><tr><th>Marca</th><th>Modelo</th><th>Motor</th><th>Torque</th></tr></thead><tbody></tbody></table>
         </div>
 
         <div class="card" style="margin-top:14px">
           <h3 style="margin:6px 0 10px">Notas</h3>
-          <div class="note" id="notes">Seleccioná un modelo para ver recomendaciones.</div>
+          <div class="note" id="notes">Seleccioná un modelo para ver recomendaciones técnicas.</div>
         </div>
       </section>
     </div>
@@ -124,7 +118,6 @@ async function load(){
     data = lines.slice(1).map(l=>{
       const p = l.split(',');
       const o = {}; headers.forEach((h,i)=>o[h]= (p[i]||'').trim());
-      // campos opcionales si luego ampliamos el CSV:
       if(!o.torque) o.torque = '—';
       if(!o.notas)  o.notas  = '';
       return o;
@@ -136,20 +129,17 @@ async function load(){
         const t=(filter||'').toLowerCase();
         return !t || (r.marca||'').toLowerCase().includes(t) || (r.modelo||'').toLowerCase().includes(t);
       }).slice(0,200);
-      listEl.innerHTML = rows.map(r=>`<div class="item" data-marca="${r.marca}" data-modelo="${r.modelo}" data-torque="${r.torque||''}" data-notas="${r.notas||''}">
-        ${r.modelo||''}</div>`).join('');
+      listEl.innerHTML = rows.map(r=>`<div class="item" data-marca="${r.marca}" data-modelo="${r.modelo}" data-motor="${r.motor||''}" data-torque="${r.torque||''}" data-notas="${(r.notas||'').replace(/"/g,'&quot;')}">
+        <b>${r.marca||''}</b> — ${r.modelo||''}</div>`).join('');
       listEl.querySelectorAll('.item').forEach(el=>{
         el.addEventListener('click',()=>select(el.dataset));
       });
     }
     function select(d){
-      // video sugerido por búsqueda
-      const q = encodeURIComponent(`puesta a punto ${d.marca} ${d.modelo}`);
-      document.getElementById('vid').innerHTML = `<a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=${q}">Ver video de ${d.modelo} en YouTube</a>`;
-      // tabla
+      const q = encodeURIComponent(`puesta a punto ${d.marca} ${d.modelo} ${d.motor||''}`);
+      document.getElementById('vid').innerHTML = `<a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=${q}">Ver video de ${d.marca} ${d.modelo}</a>`;
       const tb = document.querySelector('#tbl tbody');
-      tb.innerHTML = `<tr><td>${d.marca||''}</td><td>${d.modelo||''}</td><td>${d.torque||'—'}</td></tr>`;
-      // notas
+      tb.innerHTML = `<tr><td>${d.marca||''}</td><td>${d.modelo||''}</td><td>${d.motor||''}</td><td>${d.torque||'—'}</td></tr>`;
       document.getElementById('notes').textContent = d.notas ? d.notas : 'Revisar manual y valores del fabricante.';
     }
     q.addEventListener('input', e=>render(e.target.value));
@@ -160,7 +150,6 @@ async function load(){
 }
 load();
 
-// Pago (queda listo para cuando pongas token y funciones)
 async function startPay(plan){
   try{
     const res = await fetch('/.netlify/functions/create_preference',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({plan})});
@@ -170,4 +159,4 @@ async function startPay(plan){
 }
 </script>
 </body>
-                                                                   </html>
+  </html>
