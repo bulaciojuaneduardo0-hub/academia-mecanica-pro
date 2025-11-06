@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Puesta a Punto | Academia de Mecánica Pro</title>
+<style>
+:root{--bg:#0f1420;--panel:#151c2b;--panel2:#1a2335;--text:#e8ecf3;--muted:#a8b0c0;--border:#253049;--accent:#2f6cff}
+*{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#0c111c,#0a0f1a);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+.wrap{max-width:1100px;margin:auto;padding:18px}
+.h1{font-size:28px;font-weight:800;margin:8px 0 16px}
+.section{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px;margin:12px 0}
+.h2{margin:0 0 10px;font-size:20px}
+.p{color:var(--muted);margin:6px 0 10px}
+.badge{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:6px 10px;color:var(--muted);font-size:12px;margin-right:6px}
+ul{margin:8px 0 10px 18px}
+.table{width:100%;border-collapse:collapse;font-size:14px}
+.table th,.table td{padding:10px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left}
+.note{background:var(--panel2);border:1px solid var(--border);padding:12px;border-radius:12px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:10px 14px;font-weight:700;text-decoration:none}
+details{background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:10px;margin:10px 0}
+summary{cursor:pointer;font-weight:700}
+code{background:#0b1220;border:1px solid var(--border);padding:2px 6px;border-radius:6px;color:#dbe7ff}
+@media (max-width:940px){.grid{grid-template-columns:1fr}}
+a{color:#e8ecf3}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="h1">Guía Completa de Puesta a Punto</div>
+  <p class="p">Referencia práctica para mecánicos: fundamentos, herramientas, procedimientos, reglajes, torque, sincronización, diagnóstico y verificación final. Usá esta guía junto al <a href="/search.html">Buscador</a> (valores por marca/modelo) y la <a href="/library.html">Biblioteca</a>.</p>
+
+  <!-- 1. Fundamentos -->
+  <section class="section">
+    <div class="h2">1) Fundamentos y conceptos clave</div>
+    <div class="p"><span class="badge">Objetivo</span> Comprender PMS, sincronización levas–cigüeñal y la relación con mezcla/encendido.</div>
+    <ul>
+      <li><b>PMS</b>: punto más alto del pistón del cilindro 1 (referencia de calado y reglaje).</li>
+      <li><b>Sincronización</b>: alineación exacta entre cigüeñal y árbol(es) de levas; se verifica con marcas o útiles.</li>
+      <li><b>Distribución</b>: por correa, cadena o engranajes. Tensión correcta = menos ruido, menos falla.</li>
+      <li><b>Reglaje de válvulas</b>: luz en frío/caliente según fabricante; afecta arranque, compresión y marcha pareja.</li>
+    </ul>
+    <a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=puesta+a+punto+fundamentos">Video: Fundamentos</a>
+  </section>
+
+  <!-- 2. Herramientas -->
+  <section class="section">
+    <div class="h2">2) Herramientas y preparación</div>
+    <div class="grid">
+      <div>
+        <ul>
+          <li>Útiles de calado específicos (o equivalentes de verificación).</li>
+          <li>Torquímetro (y adaptador de ángulo si corresponde).</li>
+          <li>Galgas para válvulas, extractor de poleas, comparador si aplica.</li>
+          <li>Llaves apropiadas, traba volante/cigüeñal, marcador indeleble.</li>
+          <li>Multímetro y, si es posible, escáner OBD para comprobación final.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="note">
+          <b>Tip</b>: Antes de desarmar, <i>marcá</i> posición de poleas y cadena/correa. Sacá fotos. 
+          Verificá que tengas juntas/toricas nuevas y el torque/ángulos del fabricante.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Procedimiento general -->
+  <section class="section">
+    <div class="h2">3) Procedimiento general paso a paso</div>
+    <ol>
+      <li><b>Identificar PMS</b> del cilindro 1 y bloquear si corresponde.</li>
+      <li><b>Desmontar</b> protecciones, tensores y correa/cadena siguiendo manual.</li>
+      <li><b>Alinear marcas</b> de cigüeñal y árbol(es) de levas (usar útiles cuando aplique).</li>
+      <li><b>Montar</b> correa/cadena con la tensión inicial recomendada.</li>
+      <li><b>Girar 2 vueltas</b> el cigüeñal a mano y re-verificar marcas.</li>
+      <li><b>Aplicar torque</b> y ángulos según secuencia (tapa, bancada, poleas, etc.).</li>
+      <li><b>Reglaje de válvulas</b> (si no es hidráulico) con valores del fabricante.</li>
+      <li><b>Arranque y control</b>: ruidos, fugas, scanner/OBD, temperatura, marcha.</li>
+    </ol>
+    <a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=puesta+a+punto+paso+a+paso">Video: Paso a paso</a>
+  </section>
+
+  <!-- 4. Torque -->
+  <section class="section">
+    <div class="h2">4) Pares de apriete (torque) y secuencias</div>
+    <p class="p">Usá torquímetro calibrado. Respetá <b>secuencia</b> (generalmente del centro hacia fuera en tapa) y los <b>ángulos</b> adicionales si aplica.</p>
+    <table class="table">
+      <thead><tr><th>Conjunto</th><th>Recomendación práctica</th><th>Referencia</th></tr></thead>
+      <tbody>
+        <tr><td>Tapa de cilindros</td><td>Pre-torque + ángulo(s) según hoja. Revisar tornillos “Torque To Yield”.</td><td>Ver CSV / Buscador</td></tr>
+        <tr><td>Arbol de levas/caballetes</td><td>Secuencia cruzada, subiendo en etapas.</td><td>Ver CSV / Manual</td></tr>
+        <tr><td>Poleas</td><td>Bloquear cigüeñal. Aplicar torque + ángulo si indica.</td><td>Ver CSV</td></tr>
+      </tbody>
+    </table>
+    <div class="note">Los valores exactos cambian por familia y año. Consultá <a href="/search.html">Buscador</a> (CSV) y la <a href="/library.html">Biblioteca</a>.</div>
+    <a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=torque+tapa+de+cilindros+secuencia">Video: Torque de tapa</a>
+  </section>
+
+  <!-- 5. Reglaje -->
+  <section class="section">
+    <div class="h2">5) Reglaje de válvulas</div>
+    <div class="grid">
+      <div>
+        <ul>
+          <li>Verificá si el motor usa taqués <b>hidráulicos</b> (no se regulan) o mecánicos.</li>
+          <li>Métodos: cruce de válvulas, orden de encendido, hoja del fabricante.</li>
+          <li>Valores en <code>frío</code> o <code>caliente</code> según manual. Anotá resultados.</li>
+        </ul>
+      </div>
+      <div class="note">
+        <b>Ejemplo de registro</b><br>
+        Cil 1: Adm 0.20 / Esc 0.30 (mm)<br>
+        Cil 2: Adm 0.20 / Esc 0.30 (mm)<br>
+        …<br>
+        Observaciones: sin ruidos anómalos en caliente.
+      </div>
+    </div>
+    <a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=reglaje+de+valvulas+paso+a+paso">Video: Reglaje</a>
+  </section>
+
+  <!-- 6. Sincronización -->
+  <section class="section">
+    <div class="h2">6) Sincronización de distribución</div>
+    <ul>
+      <li>Correa: tensiónar en el tramo de carga; comprobar marcas tras 2 vueltas.</li>
+      <li>Cadena: revisar patines/guías y tensor. Cambiar si hay estiramiento.</li>
+      <li>Comprobación final: sin ruidos de roce; lecturas de escáner coherentes (avances, sincronía).</li>
+    </ul>
+    <a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=sincronizacion+distribucion+motor">Video: Distribución</a>
+  </section>
+
+  <!-- 7. Diagnóstico -->
+  <section class="section">
+    <div class="h2">7) Diagnóstico básico post-armado</div>
+    <div class="grid">
+      <div>
+        <ul>
+          <li>Compresión y prueba de fugas (valores parejos entre cilindros).</li>
+          <li>Vacío estable; mezcla y chispa correctas.</li>
+          <li>Escáner: DTC, datos en vivo (CKP/CMP, misfire, temperatura, lambda).</li>
+        </ul>
+      </div>
+      <div class="note">
+        <b>Si hay falla</b>: revisar sincronía, fugas de vacío, bobinas, inyectores y presión de combustible antes de desarmar otra vez.
+      </div>
+    </div>
+    <a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=prueba+de+compresion+motor">Video: Compresión</a>
+  </section>
+
+  <!-- 8. Checklist -->
+  <section class="section">
+    <div class="h2">8) Checklist de verificación</div>
+    <details open><summary>Antes de arrancar</summary>
+      <ul>
+        <li>Marcas alineadas; tensado correcto; conectores y mangueras OK.</li>
+        <li>Fluidos al nivel; sin piezas sueltas; herramienta retirada.</li>
+      </ul>
+    </details>
+    <details><summary>Primer arranque</summary>
+      <ul>
+        <li>Ruido normal; sin fugas; ralentí estable.</li>
+        <li>Sin DTC críticos; temperatura en rango.</li>
+      </ul>
+    </details>
+    <details><summary>Entrega</summary>
+      <ul>
+        <li>Prueba en ruta corta; sin tirones ni sobrecalentamiento.</li>
+        <li>Explicar mantenimiento: correas/filtros/lubricante.</li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- 9. Errores frecuentes -->
+  <section class="section">
+    <div class="h2">9) Errores frecuentes y cómo evitarlos</div>
+    <ul>
+      <li>No girar el motor a mano para re-verificar marcas → <b>siempre</b> 2 vueltas y chequeo.</li>
+      <li>Omitir secuencia/ángulos de tapa → <b>seguir hoja</b> de fabricante.</li>
+      <li>Confundir PMS de escape con compresión → verificar cruce/orden de encendido.</li>
+      <li>No registrar valores de reglaje/torque → usar planilla; facilita reclamos y futuras puestas.</li>
+    </ul>
+  </section>
+
+  <!-- 10. Tablas de referencia mínimas -->
+  <section class="section">
+    <div class="h2">10) Valores de referencia (ejemplos)</div>
+    <table class="table">
+      <thead><tr><th>Familia</th><th>Motor</th><th>Torque tapa (ej.)</th><th>Reglaje (ej.)</th><th>Notas</th></tr></thead>
+      <tbody>
+        <tr><td>Chevrolet</td><td>1.6 8v Family I</td><td>24 Nm + ángulo*</td><td>Adm 0.20 / Esc 0.30 (mm)</td><td>Secuencia en cruz; comprobar avance</td></tr>
+        <tr><td>VW</td><td>1.6 8v EA111</td><td>25 Nm + ángulo*</td><td>Según hoja</td><td>Correa 60.000 km</td></tr>
+        <tr><td>Fiat</td><td>1.6 16v E.torQ</td><td>24 Nm + ángulo*</td><td>Según hoja</td><td>Control de fugas tras 10 min</td></tr>
+      </tbody>
+    </table>
+    <p class="p"><i>* Los ángulos y valores exactos varían por año/versión. Consultá el <a href="/search.html">Buscador</a> y tu PDF.</i></p>
+  </section>
+
+  <p class="p">¿Buscás un modelo específico? Usá el <a href="/search.html">Buscador por marca/modelo</a>. Para documentos y videos, andá a la <a href="/library.html">Biblioteca</a>.</p>
+</div>
+</body>
+  </html>
