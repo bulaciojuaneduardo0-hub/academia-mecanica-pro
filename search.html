@@ -1,0 +1,37 @@
+<!doctype html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buscador | Academia de Mecánica Pro</title>
+<style>body{font-family:Arial;background:#111;color:#fff;margin:0} .wrap{max-width:900px;margin:auto;padding:16px} .item{background:#222;padding:10px;border-radius:8px;margin:8px 0}</style>
+<div class="wrap">
+  <h1>Buscador de motores</h1>
+  <input id="q" placeholder="Buscar marca o modelo" style="width:100%;padding:10px;border-radius:8px;border:1px solid #444;background:#000;color:#fff">
+  <div id="list"></div>
+  <p><a href="/index.html" style="color:#fff">← Volver</a></p>
+</div>
+<script>
+async function load(){
+  try{
+    const txt = await (await fetch('/data/manual_puesta_a_punto_inicial.csv')).text();
+    const lines = txt.split('\n').filter(Boolean);
+    const headers = lines[0].split(',');
+    const rows = lines.slice(1).map(l=>{const p=l.split(',');const o={};headers.forEach((h,i)=>o[h]=p[i]||'');return o;});
+    const q = document.getElementById('q');
+    const list = document.getElementById('list');
+    function render(){
+      const term = (q.value||'').toLowerCase();
+      list.innerHTML = '';
+      rows.filter(r=> !term || (r.marca||'').toLowerCase().includes(term) || (r.modelo||'').toLowerCase().includes(term))
+          .slice(0,80)
+          .forEach(r=>{
+            const el = document.createElement('div');
+            el.className='item';
+            el.innerHTML = `<b>${r.marca||''} — ${r.modelo||''}</b><br>${r.motor||''}<br><small>Torque/Reglajes en módulo correspondiente</small>`;
+            list.appendChild(el);
+          });
+    }
+    q.addEventListener('input', render);
+    render();
+  }catch(e){ document.getElementById('list').textContent = 'No se pudo cargar el listado.'; }
+}
+load();
+</script>
