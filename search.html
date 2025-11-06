@@ -21,11 +21,11 @@ async function load(){
       const term = (q.value||'').toLowerCase();
       list.innerHTML = '';
       rows.filter(r=> !term || (r.marca||'').toLowerCase().includes(term) || (r.modelo||'').toLowerCase().includes(term))
-          .slice(0,80)
+          .slice(0,120)
           .forEach(r=>{
             const el = document.createElement('div');
             el.className='item';
-            el.innerHTML = `<b>${r.marca||''} — ${r.modelo||''}</b><br>${r.motor||''}<br><small>Torque/Reglajes en módulo correspondiente</small>`;
+            el.innerHTML = `<b>${r.marca||''} — ${r.modelo||''}</b><br>${r.motor||''}<br><small>${r.torque||'—'} — ${(r.notas||'').replace(/</g,'&lt;')}</small>`;
             list.appendChild(el);
           });
     }
