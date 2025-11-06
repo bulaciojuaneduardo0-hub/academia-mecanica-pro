@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Academia de Mecánica Pro</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:linear-gradient(#2f2f2f,#1f1f1f);color:#fff;margin:0}
+    .hero{min-height:55vh;display:flex;align-items:center;justify-content:center;background:#111 url('https://i.imgur.com/0o6u3qG.jpeg') center/cover no-repeat}
+    .overlay{background:rgba(0,0,0,.45);padding:28px;border-radius:12px;text-align:center}
+    h1{margin:0 0 6px 0;font-size:28px}
+    .tag{opacity:.9;margin:0 0 10px 0}
+    .btn{display:inline-block;background:#c0392b;color:#fff;text-decoration:none;padding:10px 16px;border-radius:8px;margin:6px}
+    .grid{display:grid;gap:12px;padding:22px}
+    .card{background:#222;border-radius:10px;padding:16px}
+    a.link{color:#fff}
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="overlay">
+      <h1>Academia de Mecánica Pro</h1>
+      <p class="tag">Formación práctica para mecánicos modernos</p>
+      <a class="btn" href="/search.html">Entrar a la Academia</a>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h3>Acceso</h3>
+      <a class="btn" href="#" onclick="startPay('monthly')">Suscribirme (Mensual)</a>
+      <a class="btn" href="#" onclick="startPay('annual')">Suscribirme (Anual)</a>
+      <p style="opacity:.8">Tras el pago recibirás un <b>código</b> para ingresar.</p>
+      <hr>
+      <input id="code" placeholder="Ingresar código" style="width:100%;padding:8px;border-radius:8px;border:1px solid #444;background:#111;color:#fff">
+      <a class="btn" href="#" onclick="login()">Entrar</a>
+      <p id="msg" style="opacity:.9"></p>
+    </div>
+
+    <div class="card">
+      <h3>Contenido</h3>
+      <p><a class="link" href="/modules.html">Módulos teórico–prácticos</a></p>
+      <p><a class="link" href="/search.html">Buscador de motores</a></p>
+      <p><a class="link" href="/library.html">Biblioteca de videos (YouTube)</a></p>
+    </div>
+  </section>
+
+  <script src="/js/config.js"></script>
+  <script>
+    async function startPay(plan){
+      try{
+        const res = await fetch('/.netlify/functions/create_preference', {
+          method:'POST', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({plan})
+        });
+        const data = await res.json();
+        if(data.init_point) location.href = data.init_point;
+        else alert('No se pudo iniciar el pago.');
+      }catch(e){ alert('Error de conexión'); }
+    }
+    async function login(){
+      const el = document.getElementById('code');
+      const msg = document.getElementById('msg');
+      const code = (el.value||'').trim();
+      if(!code){ msg.textContent='Ingresá tu código.'; return; }
+      if(!window.CONFIG.APPS_SCRIPT_URL){ msg.textContent='Falta configurar APPS_SCRIPT_URL.'; return; }
+      try{
+        const res = await fetch(window.CONFIG.APPS_SCRIPT_URL+'?code='+encodeURIComponent(code));
+        const data = await res.json();
+        if(data.exists){ location.href='/dashboard.html'; }
+        else msg.textContent='Código inválido o vencido.';
+      }catch(e){ msg.textContent='Error verificando código.'; }
+    }
+  </script>
+</body>
+    </html>
