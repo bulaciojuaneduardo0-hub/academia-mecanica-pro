@@ -1,13 +1,75 @@
-<!doctype html><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Módulos | Academia de Mecánica Pro</title>
-<style>body{font-family:Arial;background:#111;color:#fff;margin:0} .wrap{max-width:900px;margin:auto;padding:16px} .mod{background:#1b1b1b;margin:10px 0;padding:12px;border-radius:8px}</style>
+<style>
+:root{--bg:#0f1420;--panel:#151c2b;--panel2:#1a2335;--text:#e8ecf3;--muted:#a8b0c0;--border:#253049}
+body{margin:0;background:linear-gradient(180deg,#0c111c,#0a0f1a);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+.wrap{max-width:1000px;margin:auto;padding:18px}
+.h1{font-size:28px;font-weight:800;margin:8px 0 16px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px;margin:12px 0}
+.h2{margin:0 0 6px;font-size:18px}
+.p{color:var(--muted);margin:6px 0 10px}
+.badge{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:6px 10px;color:var(--muted);font-size:12px;margin-right:6px}
+.btn{display:inline-block;background:#2f6cff;color:#fff;border-radius:10px;padding:10px 14px;font-weight:700;text-decoration:none}
+small{color:var(--muted)}
+</style>
 <div class="wrap">
-  <h1>Módulos de formación</h1>
-  <div class="mod"><h2>1. Conceptos básicos de puesta a punto</h2><p>Definición, herramientas, seguridad y pasos iniciales.</p></div>
-  <div class="mod"><h2>2. Motores 8 y 16 válvulas</h2><p>Reglajes y sincronización. Procedimientos y ejemplos.</p></div>
-  <div class="mod"><h2>3. Diagnóstico de fallas</h2><p>Compresión, fugas, pruebas con multímetro y escáner.</p></div>
-  <div class="mod"><h2>4. Inyección y sensores</h2><p>MAP, MAF, TPS, Sonda O2. Relación con la puesta a punto.</p></div>
-  <div class="mod"><h2>5. Buenas prácticas de armado</h2><p>Secuencias de apriete, torque y comprobaciones finales.</p></div>
-  <p><a href="/index.html" style="color:#fff">← Volver</a></p>
-</div>
+  <div class="h1">Módulos del curso (libre, a tu ritmo)</div>
+
+  <div class="card">
+    <div class="h2">1) Principios de Puesta a Punto</div>
+    <div class="p">Conceptos base: sincronización, calado, herramientas imprescindibles, lectura de marcas y comprobaciones.</div>
+    <div class="p"><span class="badge">Objetivo:</span> identificar pasos y criterios para una puesta a punto segura y repetible.</div>
+    <a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=puesta+a+punto+introduccion">Ver video</a>
+  </div>
+
+  <div class="card">
+    <div class="h2">2) Motores 8 y 16 Válvulas</div>
+    <div class="p">Diferencias prácticas, calado por útil y por marcas, relación con sensores de fase y cigüeñal.</div>
+    <div class="p"><span class="badge">Objetivo:</span> aplicar el procedimiento correcto según arquitectura del motor.</div>
+    <a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=calado+motor+16v+reglaje+valvulas">Ver video</a>
+  </div>
+
+  <div class="card">
+    <div class="h2">3) Diagnóstico y Mediciones</div>
+    <div class="p">Uso de multímetro y manómetro; pruebas de compresión y fugas; interpretación de resultados.</div>
+    <div class="p"><span class="badge">Objetivo:</span> detectar la causa raíz antes de desarmar.</div>
+    <a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=prueba+de+compresion+motor">Ver video</a>
+  </div>
+
+  <div class="card">
+    <div class="h2">4) Inyección y Encendido</div>
+    <div class="p">Sensores (MAP/MAF/TPS/CKP/CMP), actuadores, mezcla y avance; relación con la puesta a punto.</div>
+    <div class="p"><span class="badge">Objetivo:</span> correlacionar fallas de encendido con calado y valores de fábrica.</div>
+    <a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=sensores+map+maf+tps+ckp+funcionamiento">Ver video</a>
+  </div>
+
+  <div class="card">
+    <div class="h2">5) Torque y Reglaje de Válvulas</div>
+    <div class="p">Secuencias, pares de apriete, dilatación térmica y valores típicos por familia.</div>
+    <div class="p"><span class="badge">Objetivo:</span> usar torquímetro y galgas de forma correcta y registrar resultados.</div>
+    <a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=torque+tapa+de+cilindros+reglaje+valvulas">Ver video</a>
+  </div>
+
+  <div class="card">
+    <div class="h2">6) Mantenimiento Preventivo</div>
+    <div class="p">Planificación de correas, tensores, lubricantes, filtros y comprobaciones de rutina.</div>
+    <div class="p"><span class="badge">Objetivo:</span> construir un checklist por modelo.</div>
+    <a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=mantenimiento+preventivo+automotriz">Ver video</a>
+  </div>
+
+  <div class="card">
+    <div class="h2">7) Escáner Automotriz (introducción)</div>
+    <div class="p">Lectura de DTC, datos en vivo, freeze frame. Cómo usarlo para confirmar el calado.</div>
+    <div class="p"><span class="badge">Objetivo:</span> interpretar datos del escáner para validar la reparación.</div>
+    <a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=escaner+automotriz+uso+basico">Ver video</a>
+  </div>
+
+  <div class="card">
+    <div class="h2">8) Casos Prácticos y Tips de Taller</div>
+    <div class="p">Problemas frecuentes (tirones, falta de potencia, fallas en frío) y cómo abordarlos.</div>
+    <div class="p"><span class="badge">Objetivo:</span> aplicar un flujo de diagnóstico simple y efectivo.</div>
+    <a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=diagnostico+falla+motor+no+tiene+potencia">Ver video</a>
+  </div>
+
+  <p><small>Consejo: combiná estos módulos con el <a href="/search.html">Buscador</a> y la <a href="/library.html">Biblioteca</a>.</small></p>
+      </div>
