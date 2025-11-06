@@ -1,14 +1,38 @@
-<!doctype html><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Biblioteca | Academia de Mecánica Pro</title>
-<style>body{font-family:Arial;background:#111;color:#fff;margin:0} .wrap{max-width:900px;margin:auto;padding:16px}</style>
+<style>
+:root{--bg:#0f1420;--panel:#151c2b;--panel2:#1a2335;--text:#e8ecf3;--muted:#a8b0c0;--border:#253049}
+body{margin:0;background:linear-gradient(180deg,#0c111c,#0a0f1a);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+.wrap{max-width:900px;margin:auto;padding:18px}
+.h1{font-size:26px;font-weight:800;margin:8px 0 16px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px;margin:12px 0}
+a{color:#e8ecf3}
+small{color:var(--muted)}
+</style>
 <div class="wrap">
-  <h1>Biblioteca de videos</h1>
-  <p>Los videos se abren en YouTube para no ocupar espacio.</p>
-  <ul>
-    <li><a href="https://youtu.be/dummy1" target="_blank" style="color:#fff">Introducción a la puesta a punto</a></li>
-    <li><a href="https://youtu.be/dummy2" target="_blank" style="color:#fff">Reglaje de válvulas - 16 válvulas</a></li>
-    <li><a href="https://youtu.be/dummy3" target="_blank" style="color:#fff">Torque de tapa de cilindros</a></li>
-  </ul>
-  <p><a href="/index.html" style="color:#fff">← Volver</a></p>
-</div>
+  <div class="h1">Biblioteca de recursos</div>
+
+  <div class="card">
+    <b>Manual del alumno (PDF)</b><br>
+    <a href="/data/MANUAL%20DEL%20ALUMNO-%20CARNET%20Manipulacion%20de%20alimentos%20-%20Municipalidad%20de%20Moreno.pdf" target="_blank">Abrir / Descargar</a>
+    <p><small>Se abre en una pestaña nueva. Podés reemplazarlo por cualquier otro PDF.</small></p>
+  </div>
+
+  <div class="card">
+    <b>Ficha: Pares de apriete y reglajes (CSV)</b><br>
+    <a href="/data/manual_puesta_a_punto_inicial.csv" target="_blank">Ver CSV</a>
+    <p><small>Usado por el buscador. Podés ampliarlo con más modelos.</small></p>
+  </div>
+
+  <div class="card">
+    <b>Videos prácticos</b>
+    <ul>
+      <li><a target="_blank" href="https://www.youtube.com/results?search_query=puesta+a+punto+paso+a+paso">Puesta a punto (búsqueda general)</a></li>
+      <li><a target="_blank" href="https://www.youtube.com/results?search_query=reglaje+de+valvulas+16v">Reglaje de válvulas 16v</a></li>
+      <li><a target="_blank" href="https://www.youtube.com/results?search_query=torque+tapa+de+cilindros">Torque de tapa de cilindros</a></li>
+      <li><a target="_blank" href="https://www.youtube.com/results?search_query=diagnostico+compresion+motor">Prueba de compresión</a></li>
+    </ul>
+  </div>
+
+  <p><small>Tip: Organizá tus propios PDFs en la carpeta <code>/data</code> y linkealos aquí.</small></p>
+      </div>
