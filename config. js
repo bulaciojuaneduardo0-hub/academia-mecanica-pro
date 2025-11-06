@@ -1,0 +1,4 @@
+// Completá esto más tarde cuando tengas la URL del Apps Script
+window.CONFIG = {
+  APPS_SCRIPT_URL: "" // ej: "https://script.google.com/macros/s/AKfycbx.../exec"
+};
