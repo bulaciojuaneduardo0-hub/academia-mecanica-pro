@@ -1,105 +1,138 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Academia de Mecánica Pro</title>
 <style>
   :root{
-    --bg:#0f1420; --panel:#151c2b; --panel2:#1a2335; --text:#e8ecf3; --muted:#a8b0c0;
-    --accent:#2f6cff; --border:#253049; --chip:#0b1220;
+    --bg:#0d1117; --bg2:#0b0f15; --panel:#151b26; --panel2:#1b2331;
+    --text:#e9edf6; --muted:#a7b0c2; --border:#2a3346;
+    --blue:#2f6cff; --red:#ff3b3b;
   }
-  *{box-sizing:border-box} html,body{height:100%}
-  body{margin:0;background:linear-gradient(180deg,#0c111c,#0a0f1a);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+  *{box-sizing:border-box}
+  body{margin:0;color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+       background: radial-gradient(1200px 600px at 30% -10%, rgba(46,58,80,.35), transparent 50%),
+                   radial-gradient(1000px 500px at 120% 0%, rgba(255,59,59,.06), transparent 40%),
+                   radial-gradient(900px 500px at -20% 120%, rgba(47,108,255,.06), transparent 45%),
+                   linear-gradient(180deg, var(--bg2), var(--bg));
+       background-attachment: fixed;}
+  .texture{position:fixed;inset:0;pointer-events:none;background-image:
+     linear-gradient(transparent 97%, rgba(255,255,255,.04) 100%),
+     radial-gradient(3px 3px at 25% 35%, rgba(255,255,255,.05) 10%, transparent 60%),
+     radial-gradient(4px 4px at 70% 65%, rgba(255,255,255,.04) 10%, transparent 60%);
+     background-size:12px 12px, 240px 240px, 320px 320px;mix-blend-mode:soft-light;opacity:.5}
   a{color:var(--text);text-decoration:none}
+  .btn{display:inline-block;background:linear-gradient(90deg,var(--blue),#4b86ff);
+       padding:10px 14px;border-radius:10px;color:#fff;font-weight:700;border:1px solid rgba(255,255,255,.08)}
+  .btn.red{background:linear-gradient(90deg,#ff4141,#ff6a6a)}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:14px}
+  .chip{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:6px 10px;color:var(--muted);font-size:12px}
+
   .app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
   .side{background:var(--panel);border-right:1px solid var(--border);padding:18px 14px;position:sticky;top:0;height:100vh}
   .brand{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+  .logo{width:34px;height:34px}
   .title{font-weight:800;letter-spacing:.2px}
   .nav a{display:flex;gap:10px;padding:10px 12px;border-radius:10px;color:var(--muted)}
   .nav a.active,.nav a:hover{background:var(--panel2);color:var(--text)}
   .main{padding:18px}
   .bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
   .h1{font-size:22px;font-weight:800}
-  .chip{margin-left:auto;background:var(--chip);border:1px solid var(--border);padding:8px 10px;border-radius:999px;color:var(--muted);font-size:13px}
   .search{display:flex;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:10px 12px;flex:1;min-width:240px}
   .search input{flex:1;background:transparent;border:0;color:var(--text);outline:none}
-  .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
-  .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:14px}
-  .list{background:var(--panel2);border:1px solid var(--border);border-radius:12px;overflow:auto;max-height:380px}
+  .grid{display:grid;grid-template-columns:1.15fr 1fr;gap:14px}
+  .list{background:var(--panel2);border:1px solid var(--border);border-radius:12px;overflow:auto;max-height:420px}
   .item{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer}
   .item:hover{background:rgba(255,255,255,.05)}
   .video{aspect-ratio:16/9;background:#0b1220;border-radius:12px;border:1px solid var(--border);display:grid;place-items:center;overflow:hidden}
-  .btn{display:inline-block;background:var(--accent);padding:10px 14px;border-radius:10px;color:white;font-weight:700}
   table{width:100%;border-collapse:collapse;font-size:14px}
   td,th{padding:10px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left}
-  th{opacity:.85}
   .note{background:var(--panel2);border:1px solid var(--border);padding:12px;border-radius:12px;color:var(--muted)}
-  .logo{width:34px;height:34px;filter:drop-shadow(0 1px 0 rgba(0,0,0,.35))}
-  .subtle{color:var(--muted);font-size:13px}
-  @media (max-width:980px){ .app{grid-template-columns:1fr} .side{height:auto;position:static} .grid{grid-template-columns:1fr} .chip{margin-left:0} }
+  .badges span{margin-right:8px}
+  @media (max-width:980px){ .app{grid-template-columns:1fr} .side{height:auto;position:static} .grid{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
+<div class="texture"></div>
 <div class="app">
   <aside class="side">
     <div class="brand">
-      <!-- LOGO pistón metálico (no dice Nico Motores) -->
+      <!-- Logo rojo/azul tipo emblema -->
       <svg class="logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#cfd4db"/><stop offset="1" stop-color="#9aa3b1"/></linearGradient></defs>
-        <g fill="url(#g)">
-          <path d="M32 6a2 2 0 0 1 2 2v4a18 18 0 0 1 10.1 4.2l3-1.7a2 2 0 0 1 2.7.8l2 3.5a2 2 0 0 1-.7 2.7l-2.6 1.5a18.2 18.2 0 0 1 0 11l2.6 1.5a2 2 0 0 1 .7 2.7l-2 3.5a2 2 0 0 1-2.7.8l-3-1.7A18 18 0 0 1 34 52v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4a18 18 0 0 1-10.1-4.2l-3 1.7a2 2 0 0 1-2.7-.8l-2-3.5a2 2 0 0 1 .7-2.7l2.6-1.5a18.2 18.2 0 0 1 0-11l-2.6-1.5a2 2 0 0 1 .7-2.7l2-3.5a2 2 0 0 1 2.7-.8l3 1.7A18 18 0 0 1 26 12V8a2 2 0 0 1 2-2h4zM32 18a14 14 0 1 0 0 28 14 14 0 0 0 0-28z"/>
-          <path d="M37 23h-6v9.2a6 6 0 1 0 4 0V27h2a2 2 0 0 0 2-2v-2z"/>
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop stop-color="#cfd4db"/><stop offset="1" stop-color="#8e98ab"/>
+          </linearGradient>
+          <linearGradient id="r" x1="0" y1="0" x2="1" y2="0">
+            <stop stop-color="#ff4141"/><stop offset="1" stop-color="#ff6a6a"/>
+          </linearGradient>
+          <linearGradient id="b" x1="0" y1="0" x2="1" y2="0">
+            <stop stop-color="#2f6cff"/><stop offset="1" stop-color="#4b86ff"/>
+          </linearGradient>
+        </defs>
+        <g>
+          <circle cx="32" cy="32" r="18" fill="url(#g1)" stroke="#0a0f15" stroke-width="2"/>
+          <rect x="12" y="30" width="40" height="4" rx="2" fill="url(#b)"/>
+          <rect x="30" y="12" width="4" height="40" rx="2" fill="url(#r)"/>
         </g>
       </svg>
       <div>
         <div class="title">Academia de Mecánica Pro</div>
-        <div class="subtle">Formación práctica</div>
+        <div class="chip">Formación práctica</div>
       </div>
     </div>
 
     <nav class="nav">
-      <a class="active" href="/index.html">Índice</a>
-      <a href="/search.html">Buscador</a>
+      <a class="active" href="/index.html">Inicio</a>
+      <a href="/puesta-a-punto.html">Puesta a Punto</a>
       <a href="/modules.html">Módulos</a>
+      <a href="/diagnostico.html">Diagnóstico</a>
       <a href="/library.html">Biblioteca</a>
     </nav>
+
     <div style="margin-top:18px">
-      <a class="btn" href="#" onclick="startPay('monthly')">Suscribirme</a>
-      <div class="subtle" style="margin-top:6px">Acceso por código</div>
+      <a class="btn" href="#" onclick="alert('El cobro por Mercado Pago se activa al cargar el token en Netlify.');return false;">Suscribirme</a>
+      <div class="chip" style="margin-top:6px">Acceso por código</div>
     </div>
   </aside>
 
   <main class="main">
     <div class="bar">
-      <div class="h1">Curso de Puesta a Punto</div>
-      <div class="chip">Aprendizaje a tu ritmo</div>
+      <div class="h1">Buscador de motores</div>
       <label class="search">
         <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#a8b0c0" d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 1 0 14 15.5l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
-        <input id="q" placeholder="Buscar... (marca/modelo)">
+        <input id="q" placeholder="Buscar marca/modelo/motor">
       </label>
     </div>
 
     <div class="grid">
       <section class="card">
-        <h2 style="margin:6px 0 12px">Modelos</h2>
-        <div class="list" id="modelList"></div>
+        <div class="badges"><span class="chip">+50 motores</span> <span class="chip">Esquemas integrados</span> <span class="chip" style="border-color:#ff5454;color:#ff9f9f">Tips/Errores</span></div>
+        <div class="list" id="modelList" style="margin-top:10px"></div>
       </section>
 
-      <section>
+      <section style="display:grid;gap:14px">
         <div class="card">
           <div class="video" id="vid">
-            <a class="btn" href="https://www.youtube.com/results?search_query=puesta+a+punto+motor" target="_blank">Ver video en YouTube</a>
+            <a class="btn" href="https://www.youtube.com/results?search_query=puesta+a+punto+motor" target="_blank">Ver videos en YouTube</a>
           </div>
         </div>
 
-        <div class="card" style="margin-top:14px">
+        <div class="card">
+          <h3 style="margin:6px 0 10px">Esquema / Dibujo</h3>
+          <div id="schem" style="background:#0b1220;border:1px solid var(--border);border-radius:12px;overflow:hidden;min-height:240px;display:grid;place-items:center">
+            <a class="btn red" href="/data/Manual-de-Puesta-a-Punto.pdf" target="_blank">Abrir manual completo</a>
+          </div>
+          <div class="chip" style="margin-top:8px">Se muestra directamente sin abrir otra pestaña</div>
+        </div>
+
+        <div class="card">
           <h3 style="margin:6px 0 10px">Ficha rápida</h3>
           <table id="tbl"><thead><tr><th>Marca</th><th>Modelo</th><th>Motor</th><th>Torque</th></tr></thead><tbody></tbody></table>
         </div>
 
-        <div class="card" style="margin-top:14px">
-          <h3 style="margin:6px 0 10px">Notas</h3>
+        <div class="card">
+          <h3 style="margin:6px 0 10px">Notas, Tips y Errores comunes</h3>
           <div class="note" id="notes">Seleccioná un modelo para ver recomendaciones técnicas.</div>
         </div>
       </section>
@@ -107,63 +140,59 @@
   </main>
 </div>
 
-<script src="/js/config.js"></script>
 <script>
-let data=[];
+let DATA=[];
+let TIPS={};
 async function load(){
-  try{
-    const csv = await (await fetch('/data/manual_puesta_a_punto_inicial.csv')).text();
-    const lines = csv.split(/\r?\n/).filter(Boolean);
-    const headers = lines[0].split(',');
-    data = lines.slice(1).map(l=>{
-      const p = l.split(',');
-      const o = {}; headers.forEach((h,i)=>o[h]= (p[i]||'').trim());
-      if(!o.torque) o.torque = '—';
-      if(!o.notas)  o.notas  = '';
-      return o;
-    });
-    const listEl = document.getElementById('modelList');
-    const q = document.getElementById('q');
-    function render(filter=''){
-      const rows = data.filter(r=>{
-        const t=(filter||'').toLowerCase();
-        return !t || (r.marca||'').toLowerCase().includes(t) || (r.modelo||'').toLowerCase().includes(t);
-      }).slice(0,200);
-      listEl.innerHTML = rows.map(r=>`<div class="item" data-marca="${r.marca}" data-modelo="${r.modelo}" data-motor="${r.motor||''}" data-torque="${r.torque||''}" data-notas="${(r.notas||'').replace(/"/g,'&quot;')}">
-        <b>${r.marca||''}</b> — ${r.modelo||''}</div>`).join('');
-      listEl.querySelectorAll('.item').forEach(el=>{
-        el.addEventListener('click',()=>select(el.dataset));
-      });
-    }
-    function select(d){
-      const q = encodeURIComponent(`puesta a punto ${d.marca} ${d.modelo} ${d.motor||''}`);
-      document.getElementById('vid').innerHTML = `<a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=${q}">Ver video de ${d.marca} ${d.modelo}</a>`;
-      const tb = document.querySelector('#tbl tbody');
-      tb.innerHTML = `<tr><td>${d.marca||''}</td><td>${d.modelo||''}</td><td>${d.motor||''}</td><td>${d.torque||'—'}</td></tr>`;
-      document.getElementById('notes').textContent = d.notas ? d.notas : 'Revisar manual y valores del fabricante.';
-    }
-    q.addEventListener('input', e=>render(e.target.value));
-    render('');
-  }catch(e){
-    document.getElementById('modelList').innerHTML = '<div class="item">No se pudo cargar el listado.</div>';
+  const csv = await (await fetch('/data/manual_puesta_a_punto_inicial.csv')).text();
+  const lines = csv.split(/\r?\n/).filter(Boolean);
+  const headers = lines[0].split(',');
+  DATA = lines.slice(1).map(l=>{const p = l.split(',');const o={};headers.forEach((h,i)=>o[h]= (p[i]||'').trim());if(!o.torque)o.torque='—';return o;});
+  try{ TIPS = await (await fetch('/data/tips.json')).json(); }catch(_){ TIPS={}; }
+
+  const listEl = document.getElementById('modelList');
+  function render(filter=''){
+    const t=(filter||'').toLowerCase();
+    const rows = DATA.filter(r=> !t || [r.marca,r.modelo,r.motor].join(' ').toLowerCase().includes(t)).slice(0,200);
+    listEl.innerHTML = rows.map(r=>`<div class="item" data-marca="${r.marca}" data-modelo="${r.modelo}" data-motor="${r.motor||''}" data-torque="${r.torque||''}" data-notas="${(r.notas||'').replace(/\"/g,'&quot;')}" data-imagen="${r.imagen||''}" data-pdf_page="${r.pdf_page||''}">
+      <b>${r.marca||''}</b> — ${r.modelo||''} <span class="chip" style="margin-left:8px">${r.motor||''}</span>
+    </div>`).join('');
+    listEl.querySelectorAll('.item').forEach(el=>el.addEventListener('click',()=>select(el.dataset)));
+  }
+  document.getElementById('q').addEventListener('input', e=>render(e.target.value));
+  render('');
+}
+
+function select(d){
+  const yq = encodeURIComponent(`puesta a punto ${d.marca||''} ${d.modelo||''} ${d.motor||''}`);
+  document.getElementById('vid').innerHTML = `<a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=${yq}">Ver video de ${d.marca||''} ${d.modelo||''}</a>`;
+
+  const tb = document.querySelector('#tbl tbody');
+  tb.innerHTML = `<tr><td>${d.marca||''}</td><td>${d.modelo||''}</td><td>${d.motor||''}</td><td>${d.torque||'—'}</td></tr>`;
+
+  const key = (d.marca+'|'+d.modelo).toLowerCase();
+  const extra = TIPS[key] || {"tips":[],"errores":[]};
+  const tips = (extra.tips||[]).map(t=>`• ${t}`);
+  const errs = (extra.errores||[]).map(t=>`• ${t}`);
+  const tex = `<b>Notas técnicas:</b> ${d.notas||'—'}<br><br><b style="color:#9ec1ff">Tips:</b><br>${tips.join('<br>')||'—'}<br><br><b style="color:#ff9b9b">Errores comunes:</b><br>${errs.join('<br>')||'—'}`;
+  document.getElementById('notes').innerHTML = tex;
+
+  const schem = document.getElementById('schem');
+  const img = (d.imagen||'').trim();
+  const page = (d.pdf_page||'').trim();
+  if(img){
+    schem.innerHTML = `<img src="/img/${img}" alt="Esquema ${d.marca||''} ${d.modelo||''}" style="max-width:100%;height:auto;display:block">`;
+  } else if(page && !isNaN(Number(page))){
+    const url = `/data/Manual-de-Puesta-a-Punto.pdf#page=${Number(page)}&view=FitH&toolbar=1`;
+    schem.innerHTML = `<iframe src="${url}" style="width:100%;height:420px;border:0"></iframe>`;
+  } else {
+    const term = encodeURIComponent(`${d.marca||''} ${d.modelo||''}`.trim());
+    const url = `/data/Manual-de-Puesta-a-Punto.pdf#search=${term}&view=FitH`;
+    schem.innerHTML = `<iframe src="${url}" style="width:100%;height:420px;border:0"></iframe>`;
   }
 }
-load();
 
-async function startPay(plan){
-  try{
-    const res = await fetch('/.netlify/functions/create_preference',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({plan})});
-    const data = await res.json();
-    if(data.init_point) location.href = data.init_point; else alert('No se pudo iniciar el pago');
-  }catch(e){ alert('Error de conexión'); }
-}
+load();
 </script>
 </body>
-  </html>
-<nav class="nav">
-  <a class="active" href="/index.html">Índice</a>
-  <a href="/puesta-a-punto.html">Puesta a Punto</a>
-  <a href="/search.html">Buscador</a>
-  <a href="/modules.html">Módulos</a>
-  <a href="/library.html">Biblioteca</a>
-</nav>
+</html>
