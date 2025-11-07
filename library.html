@@ -1,36 +1,26 @@
 <!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Biblioteca | Academia de Mecánica Pro</title>
 <style>
-:root{--bg:#0f1420;--panel:#151c2b;--panel2:#1a2335;--text:#e8ecf3;--muted:#a8b0c0;--border:#253049}
-body{margin:0;background:linear-gradient(180deg,#0c111c,#0a0f1a);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
-.wrap{max-width:900px;margin:auto;padding:18px}
-.h1{font-size:26px;font-weight:800;margin:8px 0 16px}
-.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px;margin:12px 0}
-a{color:#e8ecf3}
-small{color:var(--muted)}
+  :root{--bg:#0d1117;--panel:#151b26;--panel2:#1b2331;--text:#e9edf6;--muted:#a7b0c2;--border:#2a3346;--blue:#2f6cff;}
+  *{box-sizing:border-box} body{margin:0;color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#0b0f15,#0d1117)}
+  .texture{position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(3px 3px at 25% 35%, rgba(255,255,255,.05) 10%, transparent 60%);background-size:240px 240px;mix-blend-mode:soft-light;opacity:.5}
+  .wrap{max-width:900px;margin:auto;padding:18px}
+  .h1{font-size:26px;font-weight:800;margin:8px 0 16px}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:14px;margin:12px 0}
+  .btn{display:inline-block;background:linear-gradient(90deg,var(--blue),#4b86ff);color:#fff;border-radius:10px;padding:10px 14px;font-weight:700;text-decoration:none}
+  .chip{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:6px 10px;color:var(--muted);font-size:12px}
 </style>
+<div class="texture"></div>
 <div class="wrap">
-  <div class="h1">Biblioteca de recursos</div>
-
+  <div class="h1">Biblioteca</div>
   <div class="card">
     <b>Manual de Puesta a Punto (PDF)</b><br>
-    <a href="/data/Manual-de-Puesta-a-Punto.pdf" target="_blank">Abrir / Descargar</a>
-    <p><small>Colocá tu PDF con este nombre dentro de <code>/data</code> para que el enlace funcione.</small></p>
+    <a href="/data/Manual-de-Puesta-a-Punto.pdf" target="_blank" class="btn" style="margin-top:8px">Abrir / Descargar</a>
+    <p class="chip" style="margin-top:8px">Podés reemplazarlo por otro PDF con el mismo nombre.</p>
   </div>
-
   <div class="card">
     <b>Ficha técnica (CSV)</b><br>
-    <a href="/data/manual_puesta_a_punto_inicial.csv" target="_blank">Ver CSV</a>
-    <p><small>El buscador del inicio usa este archivo. Podés ampliarlo con más filas.</small></p>
+    <a href="/data/manual_puesta_a_punto_inicial.csv" target="_blank" class="btn" style="margin-top:8px">Ver CSV</a>
+    <p class="chip" style="margin-top:8px">El buscador usa este archivo. Columnas extra: imagen, pdf_page.</p>
   </div>
-
-  <div class="card">
-    <b>Videos prácticos</b>
-    <ul>
-      <li><a target="_blank" href="https://www.youtube.com/results?search_query=puesta+a+punto+paso+a+paso">Puesta a punto – paso a paso</a></li>
-      <li><a target="_blank" href="https://www.youtube.com/results?search_query=reglaje+de+valvulas+16v">Reglaje de válvulas 16v</a></li>
-      <li><a target="_blank" href="https://www.youtube.com/results?search_query=torque+tapa+de+cilindros">Torque de tapa de cilindros</a></li>
-      <li><a target="_blank" href="https://www.youtube.com/results?search_query=sincronizacion+distribucion+motor">Sincronización de distribución</a></li>
-    </ul>
   </div>
-</div>
