@@ -1,0 +1,45 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diagnóstico | Academia de Mecánica Pro</title>
+<style>
+  :root{--bg:#0d1117;--panel:#151b26;--panel2:#1b2331;--text:#e9edf6;--muted:#a7b0c2;--border:#2a3346;--blue:#2f6cff;}
+  *{box-sizing:border-box} body{margin:0;color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#0b0f15,#0d1117)}
+  .texture{position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(3px 3px at 25% 35%, rgba(255,255,255,.05) 10%, transparent 60%);background-size:240px 240px;mix-blend-mode:soft-light;opacity:.5}
+  .wrap{max-width:960px;margin:auto;padding:18px}
+  .h1{font-size:28px;font-weight:800;margin:8px 0 16px}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:14px;margin:12px 0}
+  .sel{width:100%;padding:10px;border-radius:10px;background:var(--panel2);border:1px solid var(--border);color:var(--text)}
+  .btn{display:inline-block;background:linear-gradient(90deg,var(--blue),#4b86ff);color:#fff;border-radius:10px;padding:10px 14px;font-weight:700;text-decoration:none}
+  .list li{margin:6px 0}
+</style>
+<div class="texture"></div>
+<div class="wrap">
+  <div class="h1">Diagnóstico rápido de fallas</div>
+  <div class="card">
+    <label>Elegí un síntoma:</label>
+    <select class="sel" id="sym">
+      <option value="">— Seleccionar —</option>
+      <option value="arranque">No arranca</option>
+      <option value="ralenti">Ralentí inestable</option>
+      <option value="golpeteo">Golpeteo de válvulas</option>
+      <option value="humo">Humo (blanco/azul/negro)</option>
+      <option value="vibracion">Vibraciones</option>
+    </select>
+  </div>
+  <div class="card" id="out">Elegí un síntoma para ver causas y pasos sugeridos.</div>
+  <p><a class="btn" href="/modules.html">← Volver a módulos</a></p>
+</div>
+<script>
+const DB = {
+  arranque: { causas: ['Batería descargada','Sin chispa','Sin combustible','Sin sincronía','Sensor CKP/CMP'], pasos: ['Medir voltaje','Probar chispa','Medir presión','Verificar marcas','Leer DTC'] },
+  ralenti:  { causas: ['Aire falso','Mariposa sucia','Bujías gastadas','Presión inestable','MAP/MAF/TPS'], pasos: ['Buscar fugas','Limpieza mariposa','Revisar bujías','Medir presión','Leer datos en vivo'] },
+  golpeteo: { causas: ['Luz incorrecta','Taqués con aire','Aceite inadecuado','Patines/guías'], pasos: ['Ajustar reglaje','Purgar/renovar aceite','Inspeccionar guías','Prueba en frío/caliente'] },
+  humo:     { causas: ['Blanco: refrigerante','Azul: aceite','Negro: mezcla rica'], pasos: ['Estanqueidad tapa','Compresión/fugas','Inyectores/sonda O2'] },
+  vibracion:{ causas: ['Soportes motor','Misfire','Poleas','Volante motor'], pasos: ['Inspección soportes','Misfire en OBD','Revisar poleas','Prueba con carga'] }
+};
+document.getElementById('sym').addEventListener('change', e=>{
+  const k = e.target.value; if(!k) return document.getElementById('out').innerHTML='Elegí un síntoma...';
+  const d = DB[k];
+  document.getElementById('out').innerHTML = `<b>Causas probables</b><ul class="list">${d.causas.map(c=>`<li>${c}</li>`).join('')}</ul>
+  <b>Pasos sugeridos</b><ul class="list">${d.pasos.map(c=>`<li>${c}</li>`).join('')}</ul>`;
+});
+</script>
